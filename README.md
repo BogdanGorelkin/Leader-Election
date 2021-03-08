@@ -70,7 +70,7 @@ In the next paragraph, we provide the results of our simulation, as well as the 
 <i>Figure 5: Final weight of subtrees</i>
 </div>
 </br>
-The process seems less complicated when everything is obvious in the configuration model. The process diagram is shown in Figure 6-a and experimented in <i>Figure 6-b</i>.
+The process seems less complicated when everything is obvious in the configuration model. The process diagram is shown in <i>Figure 6-a</i> and experimented in <i>Figure 6-b</i>.
 <div align="center">
 <img src="https://user-images.githubusercontent.com/74824667/110368891-eb163080-8049-11eb-8ee7-90110caeebbf.png"></br>
 <i>Figure 6-a: diagram for obvious model</i>
@@ -89,12 +89,13 @@ In the course of the work, we encountered difficulties that we could not solve b
 <i>Figure 7a: model with an undefined block</i>
 </div>
 </br>
-This problem is shown schematically in Figure 7-a. Block with ID number 4 simultaneously receives messages from possible leaders and tries to answer them. Because of this, the program runs in an infinite loop and the program execution time does not stop. This can be seen when simulating this configuration in <i>Figure 7-b</i>.
+This problem is shown schematically in <i>Figure 7-a</i>. Block with ID number 4 simultaneously receives messages from possible leaders and tries to answer them. Because of this, the program runs in an infinite loop and the program execution time does not stop. This can be seen when simulating this configuration in <i>Figure 7-b</i>.
 <div align="center">
 <img src="https://user-images.githubusercontent.com/74824667/110369181-519b4e80-804a-11eb-9734-2914c973badd.png"></br>
-<i>A simulation of the program was also performed for 199 blocks, this is demonstrated schematically in Figure 8-a and experimentally in Figure 8-b.</i>
+<i>Figure 7-b: Simulating a model with an undefined block</i>
 </div>
 </br>
+A simulation of the program was also performed for 199 blocks, this is demonstrated schematically in <i>Figure 8-a</i> and experimentally in <i>Figure 8-b</i>.
 <div align="center">
 <img src="https://user-images.githubusercontent.com/74824667/110369198-58c25c80-804a-11eb-8b70-340ef017a5f3.png"></br>
 <i>Figure 8-a: Configuration model diagram for 199 blocks</i>
@@ -105,6 +106,50 @@ This problem is shown schematically in Figure 7-a. Block with ID number 4 simult
 <i>Figure 8b: Experiment on 199 blocks</i>
 </div>
 </br>
-When the configuration model contains blocks with only one neighbor (that is, the weight of which is exactly 1, 2, 4, 8, 16, 32), there are no problems. But when there is no such block, the choice of the leader becomes more difficult. Our code is static, to improve it we need to make the part shown in Figure 9 dynamic.
+When the configuration model contains blocks with only one neighbor (that is, the weight of which is exactly 1, 2, 4, 8, 16, 32), there are no problems. But when there is no such block, the choice of the leader becomes more difficult. Our code is static, to improve it we need to make the part shown in <i>Figure 9</i> dynamic.
+
+```cpp
+if (count == 1){
+//count equal to how many neighbors have your block
+supposedLeader.push_back(module->blockId);
+}
+```
+<div align="center">
+<i>Figure 9: Weak point in our work</i>
+</div>
+</br>
+
+An experiment for a volumetric cube is shown in <i>Figure 10</i>. This cube consists of small cubes (modular robots). For the program to start working, the "count" must be equal to 3, this is the number of neighbors for possible leaders.
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74824667/110370889-8f00db80-804c-11eb-8dcc-41131a33f428.png"></br>
+<i>Figure 10: Volumetric cube model</i>
+</div>
+</br>
+
+However, when the program is executed, the same problem arises as in <i>Figure 7-a</i>, but on a large scale. To analyze this problem, let's turn to <i>Figure 11</i> in more detail.
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74824667/110371006-af309a80-804c-11eb-96be-53b88384669a.png"></br>
+<i>Figure 11: Analysis of the reasons for ambiguity</i>
+</div>
+</br>
+
+According to the proposed algorithm, recruiting starts with the blocks that have the least number of neighbors (and also the least weight). That is, from the blocks that are in the corners of the rectangle. The first recruitment step is successful, then blocks that are colored red are trying to recruit gray blocks from the center. Recruiting fails, because the gray box does not know which request needs to be answered. This situation is considered separately in schematic <i>Figure 12</i>. Upon detailed examination, it becomes clear that this situation is no different from <i>Figure 7-a</i>.
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74824667/110371154-dedfa280-804c-11eb-877d-dd0d9aa9a2b5.png"></br>
+<i>Figure 12: Detailed examination of issue</i>
+</div>
+</br>
+	Also, this experiment was carried out for a random model, the results of which are shown in <i>Figure 13</i>.
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74824667/110372359-7db8ce80-804e-11eb-86aa-dd104e686736.png"></br>
+<i>Figure 13: Experimenting with a random model</i>
+</div>
+</br>
+
+##  Conclusions
+This algorithm is needed not only to play the evolution of digital trees, but also has a very useful and important application. in decentralized systems where the task is to select a leader, this algorithm can be used on an equal footing with the ABC-Center, k-BFS SumSweep, etc.
+</br>This work is quite voluminous. The operation of the algorithm is clear and transparent, but when implementing the algorithm, a large number of difficulties arise that must be solved.
+
+
 
 
