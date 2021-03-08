@@ -12,7 +12,7 @@ project relaized in [VisibleSim](https://github.com/VisibleSim/VisibleSim)
 
 ---
 
-## Introduction
+##  Introduction
 The algorithm is based in six phases. First, each module generates locally an integer, called weight based on the numbering of their connected interfaces. After that, spanning trees will be created using a recruitment method, then the values of the recruited modules will be calculated, the generated spanning tree will compete and the losing trees are dismantled, this step is repeated until one tree remains. And finally the leader is elected. 
 </br>Computing the binary value and the weight of each block: For getting the number of interfaces we use getNbInterfaces() and generate a string by adding 1 and 0 based on the condition if connected or not respectively. After calculating the binary value, we converted the values to decimal to get the final weight value of each block. The output of this part is depicted in <i>Figure 1-a</i>.
 
@@ -62,3 +62,49 @@ After the subtrees are determined, the competition of trees begins, this can be 
 </br>
 
 When the leaders know the sum of their trees, it remains only to compare the values of all the leaders and choose the winner. At this stage, we had great difficulties that slowed down our work. The problem is that we weren't focused on the status of each block. We tried to create an array in which the values of each tree would be written, but the problem is that two arrays of the same name were created and comparison was impossible.
+
+## 	Experimental part
+In the next paragraph, we provide the results of our simulation, as well as the execution time of the algorithm and the number of messages sent.
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74824667/110368761-c621bd80-8049-11eb-96b8-c0aeeda3604b.png"></br>
+<i>Figure 5: Final weight of subtrees</i>
+</div>
+</br>
+The process seems less complicated when everything is obvious in the configuration model. The process diagram is shown in Figure 6-a and experimented in <i>Figure 6-b</i>.
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74824667/110368891-eb163080-8049-11eb-8ee7-90110caeebbf.png"></br>
+<i>Figure 6-a: diagram for obvious model</i>
+</div>
+</br>
+
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74824667/110368974-02551e00-804a-11eb-83a1-88db6fbbf80f.png"></br>
+<i>Figure 6-b: simulation of obvious model</i>
+</div>
+</br>
+
+In the course of the work, we encountered difficulties that we could not solve before meet the deadline. One of these difficulties arises when hiring blocks when there is a block in the middle between the two possible leaders. That is, this block has the same distance to the leaders. 
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74824667/110368993-07b26880-804a-11eb-9559-9dce66712e94.png"></br>
+<i>Figure 7a: model with an undefined block</i>
+</div>
+</br>
+This problem is shown schematically in Figure 7-a. Block with ID number 4 simultaneously receives messages from possible leaders and tries to answer them. Because of this, the program runs in an infinite loop and the program execution time does not stop. This can be seen when simulating this configuration in <i>Figure 7-b</i>.
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74824667/110369181-519b4e80-804a-11eb-9734-2914c973badd.png"></br>
+<i>A simulation of the program was also performed for 199 blocks, this is demonstrated schematically in Figure 8-a and experimentally in Figure 8-b.</i>
+</div>
+</br>
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74824667/110369198-58c25c80-804a-11eb-8b70-340ef017a5f3.png"></br>
+<i>Figure 8-a: Configuration model diagram for 199 blocks</i>
+</div>
+</br>
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74824667/110369219-5fe96a80-804a-11eb-8c88-c45489b9af3b.png"></br>
+<i>Figure 8b: Experiment on 199 blocks</i>
+</div>
+</br>
+When the configuration model contains blocks with only one neighbor (that is, the weight of which is exactly 1, 2, 4, 8, 16, 32), there are no problems. But when there is no such block, the choice of the leader becomes more difficult. Our code is static, to improve it we need to make the part shown in Figure 9 dynamic.
+
+
