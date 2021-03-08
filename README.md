@@ -95,7 +95,7 @@ This problem is shown schematically in <i>Figure 7-a</i>. Block with ID number 4
 <i>Figure 7-b: Simulating a model with an undefined block</i>
 </div>
 </br>
-A simulation of the program was also performed for 199 blocks, this is demonstrated schematically in <i>Figure 8-a</i> and experimentally in <i>Figure 8-b</i>.
+A simulation of the program was also performed for 199 blocks, this is demonstrated schematically in <i>Figure 8-a</i> and experimentally in the <i>Figure 8-b</i>.
 <div align="center">
 <img src="https://user-images.githubusercontent.com/74824667/110369198-58c25c80-804a-11eb-8b70-340ef017a5f3.png"></br>
 <i>Figure 8-a: Configuration model diagram for 199 blocks</i>
