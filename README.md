@@ -71,6 +71,7 @@ In the next paragraph, we provide the results of our simulation, as well as the 
 </div>
 </br>
 The process seems less complicated when everything is obvious in the configuration model. The process diagram is shown in <i>Figure 6-a</i> and experimented in <i>Figure 6-b</i>.
+</br>
 <div align="center">
 <img src="https://user-images.githubusercontent.com/74824667/110368891-eb163080-8049-11eb-8ee7-90110caeebbf.png"></br>
 <i>Figure 6-a: diagram for obvious model</i>
@@ -89,13 +90,13 @@ In the course of the work, we encountered difficulties that we could not solve b
 <i>Figure 7a: model with an undefined block</i>
 </div>
 </br>
-This problem is shown schematically in <i>Figure 7-a</i>. Block with ID number 4 simultaneously receives messages from possible leaders and tries to answer them. Because of this, the program runs in an infinite loop and the program execution time does not stop. This can be seen when simulating this configuration in <i>Figure 7-b</i>.
+This problem is shown schematically in <i>Figure 7-a</i>. Block with ID number 4 simultaneously receives messages from possible leaders and tries to answer them. Because of this, the program runs in an infinite loop and the program execution time does not stop. This can be seen when simulating this configuration in <i>Figure 7-b</i>.</br>
 <div align="center">
 <img src="https://user-images.githubusercontent.com/74824667/110369181-519b4e80-804a-11eb-9734-2914c973badd.png"></br>
 <i>Figure 7-b: Simulating a model with an undefined block</i>
 </div>
 </br>
-A simulation of the program was also performed for 199 blocks, this is demonstrated schematically in <i>Figure 8-a</i> and experimentally in the <i>Figure 8-b</i>.
+A simulation of the program was also performed for 199 blocks, this is demonstrated schematically in <i>Figure 8-a</i> and experimentally in the <i>Figure 8-b</i>.</br>
 <div align="center">
 <img src="https://user-images.githubusercontent.com/74824667/110369198-58c25c80-804a-11eb-8b70-340ef017a5f3.png"></br>
 <i>Figure 8-a: Configuration model diagram for 199 blocks</i>
@@ -106,8 +107,7 @@ A simulation of the program was also performed for 199 blocks, this is demonstra
 <i>Figure 8b: Experiment on 199 blocks</i>
 </div>
 </br>
-When the configuration model contains blocks with only one neighbor (that is, the weight of which is exactly 1, 2, 4, 8, 16, 32), there are no problems. But when there is no such block, the choice of the leader becomes more difficult. Our code is static, to improve it we need to make the part shown in <i>Figure 9</i> dynamic.
-
+When the configuration model contains blocks with only one neighbor (that is, the weight of which is exactly 1, 2, 4, 8, 16, 32), there are no problems. But when there is no such block, the choice of the leader becomes more difficult. Our code is static, to improve it we need to make the part shown in <i>Figure 9</i> dynamic.</br>
 ```cpp
 if (count == 1){
 //count equal to how many neighbors have your block
@@ -139,7 +139,7 @@ According to the proposed algorithm, recruiting starts with the blocks that have
 <i>Figure 12: Detailed examination of issue</i>
 </div>
 </br>
-	Also, this experiment was carried out for a random model, the results of which are shown in <i>Figure 13</i>.
+	Also, this experiment was carried out for a random model, the results of which are shown in <i>Figure 13</i>.</br>
 <div align="center">
 <img src="https://user-images.githubusercontent.com/74824667/110372359-7db8ce80-804e-11eb-86aa-dd104e686736.png"></br>
 <i>Figure 13: Experimenting with a random model</i>
