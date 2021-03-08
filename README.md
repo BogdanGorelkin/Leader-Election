@@ -13,12 +13,12 @@ project relaized in [VisibleSim](https://github.com/VisibleSim/VisibleSim)
 ---
 
 ## Introduction
-The algorithm is based in six phases. First, each module generates locally an integer, called weight based on the numbering of their connected interfaces. After that, spanning trees will be created using a recruitment method, then the values of the recruited modules will be calculated, the generated spanning tree will compete and the losing trees are dismantled, this step is repeated until one tree remains. And finally the leader is elected. 
-</br>Computing the binary value and the weight of each block: For getting the number of interfaces we use getNbInterfaces() and generate a string by adding 1 and 0 based on the condition if connected or not respectively. After calculating the binary value, we converted the values to decimal to get the final weight value of each block. The output of this part is depicted in *Figure 1-a*.
+<p>The algorithm is based in six phases. First, each module generates locally an integer, called weight based on the numbering of their connected interfaces. After that, spanning trees will be created using a recruitment method, then the values of the recruited modules will be calculated, the generated spanning tree will compete and the losing trees are dismantled, this step is repeated until one tree remains. And finally the leader is elected. 
+</br><p>Computing the binary value and the weight of each block: For getting the number of interfaces we use getNbInterfaces() and generate a string by adding 1 and 0 based on the condition if connected or not respectively. After calculating the binary value, we converted the values to decimal to get the final weight value of each block. The output of this part is depicted in *Figure 1-a*.
 
 <div align="center">
 <img src="https://user-images.githubusercontent.com/74824667/110364380-f9614e00-8043-11eb-976c-0e6ed2eee4bf.png"></br>
-*Figure 1-a: Calculation of binary number and weight value for each module*
+<i>Figure 1-a: Calculation of binary number and weight value for each module</i>
 </div>
 
 The weight of each block is determined by the surfaces that have connections. Since the work was done in BlinkyBlocks, the weight of each block can take values from 0 to 32. Therefore, the potential leader can be the block whose weight is strictly equal to 1,2,4,8,16 or 32. That is, the block has only one connected neighbor (leaf).
