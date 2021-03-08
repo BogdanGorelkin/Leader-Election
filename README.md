@@ -62,10 +62,3 @@ After the subtrees are determined, the competition of trees begins, this can be 
 </br>
 
 When the leaders know the sum of their trees, it remains only to compare the values of all the leaders and choose the winner. At this stage, we had great difficulties that slowed down our work. The problem is that we weren't focused on the status of each block. We tried to create an array in which the values of each tree would be written, but the problem is that two arrays of the same name were created and comparison was impossible.
-
-
-[comment]: <> (
- <sup id="a1">[1](#f1)</sup>
-1.   <b id="f1">Link to the source</b> [↩](#a1)
-)
-
