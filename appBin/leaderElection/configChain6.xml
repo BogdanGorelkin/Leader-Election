@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no" ?>
+<visuals windowSize="1800,900"/>
+<world gridSize="200,5,5" >
+	<camera target="200,200,200" directionSpherical="0,70,400" angle="45"/>
+	<spotlight target="200,20,200" directionSpherical="45,60,500" angle="40"/>
+	<blockList color="128,128,128">
+	<block position="1,1,0" leader="true" color="255,255,0"/>	
+        <block position="2,1,0" />
+        <block position="3,1,0" />
+        <block position="4,1,0" />
+        <block position="5,1,0" />
+        <block position="6,1,0" />
+  <!--<block position="7,1,0" />-->       
+
+	</blockList>
+</world>
