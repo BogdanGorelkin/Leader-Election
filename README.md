@@ -17,7 +17,7 @@ The algorithm is based in six phases. First, each module generates locally an in
 </br>Computing the binary value and the weight of each block: For getting the number of interfaces we use getNbInterfaces() and generate a string by adding 1 and 0 based on the condition if connected or not respectively. After calculating the binary value, we converted the values to decimal to get the final weight value of each block. The output of this part is depicted in *Figure 1-a*.
 
 <div align="center">
-![image](https://user-images.githubusercontent.com/74824667/110364380-f9614e00-8043-11eb-976c-0e6ed2eee4bf.png)
+<img src="https://user-images.githubusercontent.com/74824667/110364380-f9614e00-8043-11eb-976c-0e6ed2eee4bf.png"></br>
 *Figure 1-a: Calculation of binary number and weight value for each module*
 </div>
 
